@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: mongo-finally
+server:
+  port: 8080
+myself:
+  mongodb: mongodb://root:123@localhost:27017/customer, mongodb://root:123@localhost:27018/drugstruct
