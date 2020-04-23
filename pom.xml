@@ -21,6 +21,7 @@
 	<modules>
 		<module>tom</module>
 		<module>jerry</module>
+		<module>phhc_mongodb</module>
 	</modules>
 
 	<properties>
