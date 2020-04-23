@@ -22,6 +22,7 @@
 		<module>tom</module>
 		<module>jerry</module>
 		<module>phhc_mongodb</module>
+		<module>junit_mongodb</module>
 	</modules>
 
 	<properties>
