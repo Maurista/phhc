@@ -1,4 +1,4 @@
-package mongo_java;
+package com.mongo_java;
 
 import com.AppConfig;
 import com.mongo_java.pojo.Address;

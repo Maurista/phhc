@@ -29,7 +29,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.test</groupId>
+            <groupId>org.phhc</groupId>
             <artifactId>tom</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

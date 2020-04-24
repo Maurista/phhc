@@ -1,4 +1,4 @@
-package mongo_java;
+package com.mongo_java;
 
 
 import com.AppConfig;
@@ -6,8 +6,6 @@ import com.mongo_java.pojo.Address;
 import com.mongo_java.pojo.Employee;
 import com.mongo_java.pojo.Hobby;
 import com.mongo_java.pojo.Person;
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,13 +17,11 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.LookupOperation;
 import org.springframework.data.mongodb.core.aggregation.TypedAggregation;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;

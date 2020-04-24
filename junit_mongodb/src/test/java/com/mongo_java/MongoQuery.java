@@ -1,12 +1,10 @@
-package mongo_java;
+package com.mongo_java;
 
 import com.AppConfig;
 import com.mongo_java.pojo.Address;
 import com.mongo_java.pojo.Hobby;
 import com.mongo_java.pojo.Person;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,7 +21,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@ContextConfiguration(classes = AppConfig.class)
 public class MongoQuery {
 
     private static String id;
@@ -111,5 +108,16 @@ public class MongoQuery {
                 .skip(0).limit(1)       //分页
                 .with(Sort.by(Sort.Order.asc("addr.zip"))), Person.class);  //排序
         Assert.assertEquals(1, people.size());
+    }
+
+    /**
+     * 正则 以某个字符串开头
+     */
+    @Test
+    public void startWith(){
+        mongoTemplate.insert(new Person("lisi", null ,null));
+        mongoTemplate.insert(new Person("liwu", null ,null));
+        List<Person> people = mongoTemplate.find(new Query(Criteria.where("addr.zip").regex(Pattern.compile("(li)(.*?)"))), Person.class);
+        Assert.assertEquals(2, people.size());
     }
 }

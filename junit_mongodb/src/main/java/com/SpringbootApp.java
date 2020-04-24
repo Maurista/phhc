@@ -9,6 +9,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
+import java.util.List;
+import java.util.regex.Pattern;
+
+import static java.util.regex.Pattern.*;
 
 /**
  * @author Administrator
@@ -41,6 +48,9 @@ public class SpringbootApp implements CommandLineRunner {
     public void run(String... args) throws Exception {
         /*mongoTemplate.insert(new Person());
         mongoTemplate1.insert(new Person());*/
+        mongoTemplate.insert(new Person("lisi", null ,null));
+        mongoTemplate.insert(new Person("liwu", null ,null));
+        List<Person> people = mongoTemplate.find(new Query(Criteria.where("name").regex(compile("(li)(.*?)"))), Person.class);
         mongoTemplate.insert(new Person());
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!" + mongoTemplate.getDb().getName());;
     }
